@@ -1,4 +1,4 @@
-﻿using Material_Management.Models;
+﻿using ItemManagment.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +15,7 @@ public static class ServicePlace
         if ( place == null ) 
             return false;
 
-        using var db = new DataContext();
+        using var db = new DataBaseContext();
 
         try
         {
@@ -31,7 +31,7 @@ public static class ServicePlace
 
     public static bool Remove_Place(int id)
     {
-        using var db = new DataContext();
+        using var db = new DataBaseContext();
         Place? place = db.Places.Find(id);
         
         if ( place == null ) 

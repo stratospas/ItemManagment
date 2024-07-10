@@ -9,30 +9,9 @@
     <Grid>
 
 
-        <DataGrid Name="ItemData"  HorizontalAlignment="Center" Height="298" Margin="0,85,0,0" VerticalAlignment="Top" Width="539" AutoGenerateColumns="False" MouseDoubleClick="ItemData_MouseDoubleClick">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="A/A" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Ε/Β" Binding="{Binding Internal_code}"/>
-                <DataGridTextColumn Header="Περιγραφή" Binding="{Binding Description}"/>
-                <DataGridTextColumn Header="S/N" Binding="{Binding Serial_number}"/>
-                <DataGridTemplateColumn Header="Λεπτομέρειες">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Click Me"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
-        <Button Name="Add_Item" Content="Προσθήκη" HorizontalAlignment="Left" Height="30" Margin="10,66,0,0" VerticalAlignment="Top" Width="80" FontWeight="Bold" Click="Add_Item_Click" Cursor="Hand"/>
-        <Button x:Name="Refresh" HorizontalAlignment="Right" Height="30" Margin="0,50,130,0" VerticalAlignment="Top" Width="30" FontFamily="Wingdings" BorderBrush="{x:Null}" Cursor="Hand" Click="Refresh_Click" >
-            <Button.Background>
-                <ImageBrush Stretch="UniformToFill" TileMode="None" ImageSource="/arrow-cycle.png"/>
-            </Button.Background>
-        </Button>
-
-
-
-
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Visible" />
+        
     </Grid>
+        
+        
 </Window>

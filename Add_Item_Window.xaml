@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ItemManagment"
         mc:Ignorable="d"
-        Title="Add_Item" Height="450" Width="800">
+        Title="Προσθήκη νέου αντικειμένου" Height="450" Width="800">
     <Grid>
         <Label Content="Κωδικός Αντικειμένου :" Height="30" Margin="147,71,0,0" Width="155" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Περιγραφή :" Height="30" Margin="147,121,0,0" Width="156" HorizontalAlignment="Left" VerticalAlignment="Top"/>

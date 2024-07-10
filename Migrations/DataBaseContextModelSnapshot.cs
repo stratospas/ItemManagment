@@ -16,6 +16,42 @@ namespace ItemManagment.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.6");
 
+            modelBuilder.Entity("ItemManagment.Models.Department", b =>
+                {
+                    b.Property<int>("DepartmentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Number")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("DepartmentId");
+
+                    b.ToTable("Departments");
+
+                    b.HasData(
+                        new
+                        {
+                            DepartmentId = 1,
+                            Number = 1
+                        },
+                        new
+                        {
+                            DepartmentId = 2,
+                            Number = 2
+                        },
+                        new
+                        {
+                            DepartmentId = 3,
+                            Number = 3
+                        },
+                        new
+                        {
+                            DepartmentId = 4,
+                            Number = 4
+                        });
+                });
+
             modelBuilder.Entity("ItemManagment.Models.Item", b =>
                 {
                     b.Property<int>("Id")
@@ -66,6 +102,94 @@ namespace ItemManagment.Migrations
                             Internal_code = "E/B/1110",
                             Serial_number = "AASSDD0000"
                         });
+                });
+
+            modelBuilder.Entity("ItemManagment.Models.Person", b =>
+                {
+                    b.Property<int>("PersonId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Lastname")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("PersonId");
+
+                    b.HasIndex("DepartmentId");
+
+                    b.ToTable("People");
+
+                    b.HasData(
+                        new
+                        {
+                            PersonId = 1,
+                            DepartmentId = 1,
+                            Lastname = "Πασχαλίδης",
+                            Name = "Στράτος"
+                        },
+                        new
+                        {
+                            PersonId = 2,
+                            DepartmentId = 2,
+                            Lastname = "Παπαδόπουλος",
+                            Name = "Αλέξανδρος"
+                        });
+                });
+
+            modelBuilder.Entity("ItemManagment.Models.Place", b =>
+                {
+                    b.Property<int>("PlaceId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Floor")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Number")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("PlaceId");
+
+                    b.ToTable("Places");
+
+                    b.HasData(
+                        new
+                        {
+                            PlaceId = 1,
+                            Floor = 14,
+                            Number = 47
+                        },
+                        new
+                        {
+                            PlaceId = 2,
+                            Floor = 14,
+                            Number = 45
+                        },
+                        new
+                        {
+                            PlaceId = 3,
+                            Floor = 14,
+                            Number = 40
+                        });
+                });
+
+            modelBuilder.Entity("ItemManagment.Models.Person", b =>
+                {
+                    b.HasOne("ItemManagment.Models.Department", "Department")
+                        .WithMany()
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Department");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,10 +1,11 @@
 ﻿using ItemManagment.Models;
-using ItemManagment.Pages;
 using ItemManagment.Services;
-using ItemManagment.Windows;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -14,25 +15,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static System.Net.Mime.MediaTypeNames;
 
-namespace ItemManagment
+namespace ItemManagment.Pages
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for PersonManagement.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PersonManagement : Page
     {
-
-        //public ObservableCollection<Item> items;
-        public MainWindow()
+        public ObservableCollection<Person> people;
+        public PersonManagement()
         {
             InitializeComponent();
-            MainFrame.Navigate(new ItemsManagement());
-            
+            people = new ObservableCollection<Person>(ServicePerson.Get_All());
+            peopleList.ItemsSource = people;
         }
-
-        
-
     }
 }
