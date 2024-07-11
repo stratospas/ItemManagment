@@ -55,5 +55,10 @@ namespace ItemManagment.Pages
         {
             new Person_Profile().Show();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new ItemsManagement());
+        }
     }
 }

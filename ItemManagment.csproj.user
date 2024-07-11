@@ -33,6 +33,9 @@
     <Page Update="Add_Item_Window.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ButtonsDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Controls\NavigationBar.xaml">
       <SubType>Designer</SubType>
     </Page>

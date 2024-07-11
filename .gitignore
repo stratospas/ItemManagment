@@ -2,5 +2,4 @@ bin/
 obj/
 .vs/
 /Management.db
-/LocalVars.cs
-/LocalVars.cs
+/Migrations

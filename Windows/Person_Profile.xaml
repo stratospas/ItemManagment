@@ -26,8 +26,8 @@
 
 
         <Label Name="Message"  HorizontalAlignment="Left" Height="110" Margin="216,333,0,0" VerticalAlignment="Top" Width="175"/>
-        <Button Name="Submit"  HorizontalAlignment="Left" Height="32" Margin="322,473,0,0" VerticalAlignment="Top" Width="117" Click="Button_Click" BorderBrush="#FF348823" Background="#FF348823" Foreground="White"/>
-        <Button x:Name="Cancel" Content="Άκυρο"  HorizontalAlignment="Left" Height="32" Margin="142,473,0,0" VerticalAlignment="Top" Width="117" Click="Button_Click_1"/>
+        <Button Name="Submit"  Style="{StaticResource NoHover}" HorizontalAlignment="Left" Height="32" Margin="322,473,0,0" VerticalAlignment="Top" Width="117" Click="Button_Click" Background="#FF348823" Foreground="White"/>
+        <Button x:Name="Cancel" Style="{StaticResource NoHover}" Content="Άκυρο"  HorizontalAlignment="Left" Height="32" Margin="142,473,0,0" VerticalAlignment="Top" Width="117" Click="Button_Click_1"/>
 
     </Grid>
 </Window>

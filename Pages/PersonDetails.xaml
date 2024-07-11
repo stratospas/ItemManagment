@@ -29,9 +29,9 @@
 
 
         <Label Name="Message"  HorizontalAlignment="Left" Height="55" Margin="133,293,0,0" VerticalAlignment="Top" Width="350"/>
-        <Button Name="Submit"  HorizontalAlignment="Left" Height="32" Margin="377,374,0,0" VerticalAlignment="Top" Width="117" Click="Button_Click" BorderBrush="#FF4594D0" Background="#FF4594D0" Foreground="White" Cursor="Hand"/>
-        <Button x:Name="Cancel" Content="Άκυρο"  HorizontalAlignment="Left" Height="32" Margin="126,374,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_1" Cursor="Hand"/>
-        <Button x:Name="Ok_btn" Content="ΟΚ" HorizontalAlignment="Left" Height="32" Margin="250,374,0,0" VerticalAlignment="Top" Width="117" BorderBrush="#FF0B0B0B" Background="#FF5CB75D" Foreground="White" Cursor="Hand" Click="Ok_btn_Click" Visibility="Hidden"/>
+        <Button Name="Submit" Style="{StaticResource NoHover}" HorizontalAlignment="Left" Height="32" Margin="377,374,0,0" VerticalAlignment="Top" Width="117" Click="Button_Click" Background="#FF8BCDFF" Foreground="Black" />
+        <Button x:Name="Cancel" Style="{StaticResource NoHover}" Content="Άκυρο"  HorizontalAlignment="Left" Height="32" Margin="126,374,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_1" />
+        <Button x:Name="Ok_btn" Style="{StaticResource NoHover}" Content="ΟΚ" HorizontalAlignment="Left" Height="32" Margin="250,374,0,0" VerticalAlignment="Top" Width="117" Background="#FF5CB75D" Foreground="White"  Click="Ok_btn_Click" Visibility="Hidden"/>
 
 
     </Grid>
