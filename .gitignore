@@ -1,5 +1,5 @@
 bin/
 obj/
 .vs/
-Management.db
-LocalVars.cs
+/Management.db
+/LocalVars.cs
