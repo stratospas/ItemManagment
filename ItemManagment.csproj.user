@@ -10,7 +10,16 @@
     <Compile Update="Add_Item_Window.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Controls\NavigationBar.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\EmptyPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\ItemsManagement.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\PersonDetails.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Pages\PersonManagement.xaml.cs">
@@ -24,10 +33,19 @@
     <Page Update="Add_Item_Window.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Controls\NavigationBar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Pages\EmptyPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Pages\ItemsManagement.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\PersonDetails.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\PersonManagement.xaml">

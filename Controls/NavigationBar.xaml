@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="ItemManagment.Controls.NavigationBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ItemManagment.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="1200">
+
+
+
+    <StackPanel Background="#FFB3B3B3" Orientation="Horizontal" >
+
+
+        <Button x:Name="Materials" Content="Υλικά" Cursor="Hand" Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}" Padding="5,0" Click="Materials_Click"/>
+        <Button x:Name="Transfers" Content="Mεταφορές"  Cursor="Hand" Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}" Padding="5,0"/>
+        <Button x:Name="Destroy" Content="Διαγραφές"  Cursor="Hand" Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}" Padding="5,0"/>
+        <Button x:Name="Extra" Content="Έξτρα"  Cursor="Hand" Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}" Padding="5,0"/>
+        
+    </StackPanel>
+
+</UserControl>

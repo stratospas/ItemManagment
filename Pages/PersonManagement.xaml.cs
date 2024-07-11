@@ -1,5 +1,6 @@
 ﻿using ItemManagment.Models;
 using ItemManagment.Services;
+using ItemManagment.Windows;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -29,6 +30,30 @@ namespace ItemManagment.Pages
             InitializeComponent();
             people = new ObservableCollection<Person>(ServicePerson.Get_All());
             peopleList.ItemsSource = people;
+        }
+
+        private void peopleList_DoubleClik(object sender, MouseButtonEventArgs e)
+        {
+            if(peopleList.SelectedItem != null)
+                this.NavigationService.Navigate(new PersonDetails((Person)peopleList.SelectedItem));
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if( searchBox.Text == "" )
+            {
+                peopleList.ItemsSource = people;
+            }
+            else
+            {
+                var p = new ObservableCollection<Person>(ServicePerson.Search(searchBox.Text.ToUpper()));
+                peopleList.ItemsSource = p;
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            new Person_Profile().Show();
         }
     }
 }

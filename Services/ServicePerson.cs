@@ -14,9 +14,9 @@ namespace ItemManagment.Services
         public static List<Person> Get_All()
         {
             using var db = new DataBaseContext();
-            return [.. db.People];
+            return [.. db.People.Include(p=>p.Department)];
         }
-        public static bool Add_Person( Person? person)
+        public static bool Add( Person? person)
         {
             using var db = new DataBaseContext();
             try
@@ -61,18 +61,18 @@ namespace ItemManagment.Services
             return [.. db.People.Where(p => p.DepartmentId == department)];
         }
 
-        public static bool Update_Person(Person person, int id)
+        public static bool Update(Person person)
         {
             using var db = new DataBaseContext();
-            var update = db.Find<Person>(id);
+            var update = db.Find<Person>(person.PersonId);
 
             if (update == null)
                 return false;
 
             try
             {
-                update.Name = person.Name;
-                update.Lastname = person.Lastname;
+                update.Name = person.Name.ToUpper();
+                update.Lastname = person.Lastname.ToUpper();
                 update.DepartmentId = person.DepartmentId;
                 db.SaveChanges();
                 return true;
@@ -84,7 +84,18 @@ namespace ItemManagment.Services
             
         }
 
-        public static bool Delete_Person(int id)
+        public static List<Person> Search(string s)
+        {
+            using var db = new DataBaseContext();
+            var results = db.People
+                .Include(p => p.Department)
+                .Where(p => p.Lastname.Contains(s) || p.Name.Contains(s))
+                .ToList();
+
+            return results;                
+        }
+
+        public static bool Delete(int id)
         {
             using var db = new DataBaseContext();
             Person? result = db.Find<Person>(id);

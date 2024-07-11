@@ -1,12 +1,9 @@
 ﻿using ItemManagment.Models;
 using ItemManagment.Services;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -16,35 +13,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ItemManagment.Windows
+namespace ItemManagment.Pages
 {
     /// <summary>
-    /// Interaction logic for Person_Profile.xaml
+    /// Interaction logic for PersonDetails.xaml
     /// </summary>
-    public partial class Person_Profile : Window
+    public partial class PersonDetails : Page
     {
+        public Person person;
         public ObservableCollection<Department>? deps;
-        public Person? person;
-        
-        public Person_Profile(int id)
+        public PersonDetails(Person _person)
         {
             InitializeComponent();
 
-            person = ServicePerson.Get_By_Id(id);
-            
+            person = _person;
+
             Ιnitiliazer("Στοιχεία Υπαλλήλου", "Ενημέρωση", person);
-
-
-        }
-
-        public Person_Profile()
-        {
-            InitializeComponent();
-            person = new Person { Name = "", Lastname = "", Department = null };
-            Ιnitiliazer("Προσθήκη Υπαλλήλου", "Προσθήκη", person);
-
         }
 
         public void Ιnitiliazer(string _title, string btn, Person? p)
@@ -57,10 +44,10 @@ namespace ItemManagment.Windows
 
             if (p.Department != null)
             {
-                foreach( var i in DepartmentsList.Items )
+                foreach (var i in DepartmentsList.Items)
                 {
                     var x = (Department)i;
-                    if( x.DepartmentId == p.DepartmentId )
+                    if (x.DepartmentId == p.DepartmentId)
                     {
                         DepartmentsList.SelectedItem = i;
                         break;
@@ -76,7 +63,7 @@ namespace ItemManagment.Windows
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Department d = (Department) DepartmentsList.SelectedItem;
+            Department d = (Department)DepartmentsList.SelectedItem;
             string message = "";
 
             if (FirstName.Text == "")
@@ -90,32 +77,37 @@ namespace ItemManagment.Windows
                 message += "Το πεδίο Επώνυμο είναι κενό.\n";
                 LastName.BorderBrush = Brushes.Red;
             }
-                
+
 
             if (d == null)
-            { 
+            {
                 message += "Δεν έχει επιλεχθεί τμήμα.";
                 DepartmentsList.BorderBrush = Brushes.Red;
             }
 
 
-            if (message =="")
+            if (message == "")
             {
                 person.DepartmentId = d.DepartmentId;
 
-                bool result = ServicePerson.Add(person);
+                bool result = ServicePerson.Update(person);
                 if (result)
-                    this.Close();
-
-                Message.Content = "Κάτι πήγε λάθος. Τα στοιχεία δεν αποθηκεύτηκαν.";
+                {
+                    Message.Content = "Τα στοιχεία ενημερώθηκαν!";
+                    Ok_btn.Visibility = Visibility.Visible;
+                    Cancel.Visibility = Visibility.Hidden;
+                    Submit.Visibility = Visibility.Hidden;
+                }
+                else
+                    Message.Content = "Κάτι πήγε λάθος. Τα στοιχεία δεν αποθηκεύτηκαν.";
             }
             else
             {
                 Message.Content = message;
             }
-            
 
-            
+
+
         }
 
         private void FirstName_TextChanged(object sender, TextChangedEventArgs e)
@@ -137,7 +129,12 @@ namespace ItemManagment.Windows
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            this.NavigationService.GoBack();
+        }
+
+        private void Ok_btn_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new PersonManagement());
         }
     }
 }
