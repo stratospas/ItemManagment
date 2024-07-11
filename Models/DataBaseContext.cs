@@ -14,7 +14,7 @@ namespace ItemManagment.Models
         public DbSet<Person> People { get; set; }
         public DbSet<Place> Places { get; set; }
 
-        public string path = @"C:\Users\StandAlone\source\repos\ItemManagment\Management.db";
+        public string path = new LocalVars().getPath();
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
