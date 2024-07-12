@@ -52,11 +52,12 @@
 
 
             <TextBlock Grid.Column="1" Name="Message" Height="200"  Width="148" VerticalAlignment="Top" HorizontalAlignment="Right" TextWrapping="Wrap"/>
-            <Button Grid.Column="1" Name="Submit" Style="{StaticResource NoHover}" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Height="32" Width="117" Click="Button_Click" Background="#FF8BCDFF" Foreground="Black" />
-            <Button Grid.Column="1" x:Name="Cancel" Style="{StaticResource NoHover}" Content="Άκυρο"  HorizontalAlignment="Left" Height="32" VerticalAlignment="Bottom" Width="116" Click="Button_Click_1" />
-            <Button Grid.Column="1" x:Name="Ok_btn" Style="{StaticResource NoHover}" Content="ΟΚ" HorizontalAlignment="Center" Height="32" VerticalAlignment="Bottom" Width="117" Background="#FF5CB75D" Foreground="White"  Click="Ok_btn_Click" Visibility="Hidden"/>
+            <Button Grid.Column="1" Name="Submit" Style="{StaticResource NoHover}" HorizontalAlignment="Center"  VerticalAlignment="Top" Height="32" Width="116" Click="Button_Click" Background="#FF8BCDFF" Foreground="Black" Margin="200,310,0,0"  />
+            <Button Grid.Column="1" x:Name="Cancel" Style="{StaticResource NoHover}" Content="Άκυρο"  HorizontalAlignment="Center" Height="32" VerticalAlignment="Top" Width="116" Click="Button_Click_1" Margin="-200,310,0,0" />
+            <Button Grid.Column="1" x:Name="Ok_btn" Style="{StaticResource NoHover}" Content="ΟΚ" HorizontalAlignment="Center" Height="32" VerticalAlignment="Top" Width="117" Background="#FF5CB75D" Foreground="White"  Click="Ok_btn_Click" Visibility="Hidden" Margin="0,310,0,0"/>
 
 
+            <Button Grid.Column="2" Name="Delete" Style="{StaticResource NoHover}" Content="Διαγραφή" VerticalAlignment="Top" HorizontalAlignment="Left" Height="32" Width="117" Background="#FFAD3333" Click="Delete_Click"/>
         </Grid>
 
     </Grid>

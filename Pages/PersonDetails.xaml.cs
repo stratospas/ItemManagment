@@ -36,6 +36,7 @@ namespace ItemManagment.Pages
                 person = new Person { Name = string.Empty, Lastname = string.Empty };
                 title = "Προσθήκη";
                 btn = "Προσθήκη";
+                Delete.Visibility = Visibility.Collapsed;
             }
             else
                 person = _person;
@@ -144,6 +145,30 @@ namespace ItemManagment.Pages
         private void Ok_btn_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new PersonManagement());
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            var r = MessageBox.Show("Σίγουρα θέλετε να διαγράψετε την εγγραφή;", "Προσοχή!" ,MessageBoxButton.YesNo);
+            if (r == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    bool del = ServicePerson.Delete(this.person.PersonId);
+                    if (del == true)
+                    {
+                        MessageBox.Show("Η διαγραφή ολοκληρώθηκε!", " ", MessageBoxButton.OK);
+                        this.NavigationService.Navigate(new PersonManagement());
+                    }
+                    else
+                        MessageBox.Show("Η διαγραφή ΔΕΝ ολοκληρώθηκε!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Η διαγραφή ΔΕΝ ολοκληρώθηκε!{ex}");
+                }
+            }
+
         }
     }
 }
