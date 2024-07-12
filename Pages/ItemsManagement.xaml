@@ -5,12 +5,84 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ItemManagment.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="1080"
       Title="ItemsManagement">
 
     <Grid>
-        
-        <DataGrid Name="ItemData"  HorizontalAlignment="Center" Height="298" Margin="0,85,0,0" VerticalAlignment="Top" Width="539" AutoGenerateColumns="False" MouseDoubleClick="ItemData_MouseDoubleClick">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="42*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Background="#FF636363">
+            <Button Content="Υλικά" Style="{StaticResource NoHover}" Margin="5,3" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" />
+            <Button Content="Μεταφορές" Style="{StaticResource NoHover}" Margin="5,3" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"/>
+            <Button Content="Διαγραφές" Style="{StaticResource NoHover}" Margin="5,3" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"/>
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Background="#FFE4E4E4" Height="40">
+            <Button Content="Νέο Υλικό" Style="{StaticResource NoHover}" Margin="5" Background="#FFB35252" Click="Button_Click" />
+            <Button Content="Νέα Μεταφορά" Style="{StaticResource NoHover}" Margin="5" Background="#FFB35252"/>
+            <Button Content="Νέα Διαγραφή" Style="{StaticResource NoHover}" Margin="5" Background="#FFB35252" />
+        </StackPanel>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <ListView Grid.Column="1" Name="ItemData" HorizontalAlignment="Stretch">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="α/α" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Id}" TextAlignment="Center" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+
+                        <GridViewColumn Header="Κωδικός" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Internal_code}" TextAlignment="Center" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+
+                        <GridViewColumn Header="Περιγραφή" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Description}" TextAlignment="Center" MaxWidth="350" ToolTip="{Binding Description}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="s/n" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Serial_number}" TextAlignment="Center" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                    </GridView>
+
+                </ListView.View>
+            </ListView>
+            
+        </Grid>
+
+
+<!--
+
+        <DataGrid Grid.Row="2" Name="ItemData"  HorizontalAlignment="Center" Height="298" Margin="0,85,0,0" VerticalAlignment="Top" Width="539" AutoGenerateColumns="False" MouseDoubleClick="ItemData_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="A/A" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Ε/Β" Binding="{Binding Internal_code}"/>
@@ -25,13 +97,14 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        
-        <Button Name="Add_Item" Content="Προσθήκη" HorizontalAlignment="Left" Height="30" Margin="10,66,0,0" VerticalAlignment="Top" Width="80" FontWeight="Bold" Click="Add_Item_Click" Cursor="Hand"/>
-        <Button x:Name="Refresh" HorizontalAlignment="Right" Height="30" Margin="0,50,130,0" VerticalAlignment="Top" Width="30" FontFamily="Wingdings" BorderBrush="{x:Null}" Cursor="Hand" Click="Refresh_Click" >
+
+        <Button Grid.Row="2" Name="Add_Item" Content="Προσθήκη" HorizontalAlignment="Left" Height="30" Margin="10,66,0,0" VerticalAlignment="Top" Width="80" FontWeight="Bold" Click="Add_Item_Click" Cursor="Hand"/>
+        <Button Grid.Row="2" x:Name="Refresh" HorizontalAlignment="Right" Height="30" Margin="0,50,130,0" VerticalAlignment="Top" Width="30" FontFamily="Wingdings" BorderBrush="{x:Null}" Cursor="Hand" Click="Refresh_Click" >
             <Button.Background>
                 <ImageBrush Stretch="UniformToFill" TileMode="None" ImageSource="/arrow-cycle.png"/>
             </Button.Background>
         </Button>
+        -->
 
     </Grid>
 </Page>

@@ -55,5 +55,11 @@ namespace ItemManagment.Pages
                 w.Show();
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var w = new Add_Item_Window();
+            w.Show();
+        }
     }
 }

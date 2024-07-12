@@ -15,13 +15,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="42*"/>
         </Grid.RowDefinitions>
-        <!--
-        <Button Content="" Style="{StaticResource NoHover}" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="35" BorderBrush="{x:Null}" Click="Button_Click_1" >
-            <Button.Background>
-                <ImageBrush ImageSource="/Pages/49408_arrow_back_icon.png"/>
-            </Button.Background>
-        </Button>
-        -->
+        
 
         <TextBlock Grid.Row="0" Background="#FF848484"/>
 
