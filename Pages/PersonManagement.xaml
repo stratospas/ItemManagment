@@ -25,6 +25,7 @@
 
         <TextBlock Grid.Row="0" Background="#FF848484"/>
 
+        
         <Button Grid.Row="1"  Style="{StaticResource NoHover}" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="40" Background="{x:Null}" BorderBrush="#FFADADAD" Click="Button_Click_1" >
             <StackPanel>
                 <Image Source="/Pages/back_24x24.png" />
@@ -41,11 +42,16 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button Style="{StaticResource NoHover}" Grid.Column="1" Content="Προσθήκη" Width="100" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FF4594D0" BorderBrush="#FF4594D0" Foreground="White" Click="Button_Click" Margin="0,40,0,0"/>
+            <Button Grid.Column="1"  Style="{StaticResource NoHover}" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="40" Background="{x:Null}"  Click="Button_Click"  Margin="0,30,0,0" >
+                <StackPanel>
+                    <Image Source="/Pages/add_person.png" />
+                </StackPanel>
+            </Button>
 
+            
             <TextBox Grid.Column="1" x:Name="searchBox" HorizontalAlignment="Right"  TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="TextBox_TextChanged" Margin="0,40,0,0" />
 
-            <ListView x:Name="peopleList" Grid.Column="1" HorizontalAlignment="Center" Margin="0,100,0,0" 
+            <ListView x:Name="peopleList" Grid.Column="1" HorizontalAlignment="Stretch" Margin="0,100,0,0" 
               MouseDoubleClick="peopleList_DoubleClik">
                 <ListView.View>
                     <GridView>
