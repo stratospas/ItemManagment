@@ -11,6 +11,7 @@
   <ItemGroup>
     <None Remove="arrow-cycle.png" />
     <None Remove="Pages\49408_arrow_back_icon.png" />
+    <None Remove="Pages\back_24x24.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +25,7 @@
   <ItemGroup>
     <Resource Include="arrow-cycle.png" />
     <Resource Include="Pages\49408_arrow_back_icon.png" />
+    <Resource Include="Pages\back_24x24.png" />
   </ItemGroup>
 
 </Project>

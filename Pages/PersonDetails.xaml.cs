@@ -23,22 +23,31 @@ namespace ItemManagment.Pages
     /// </summary>
     public partial class PersonDetails : Page
     {
-        public Person person;
+        public Person? person;
         public ObservableCollection<Department>? deps;
-        public PersonDetails(Person _person)
+
+        public PersonDetails(Person? _person)
         {
             InitializeComponent();
+            string title = "Στοιχεία", btn = "Ενημέρωση";
 
-            person = _person;
+            if (_person == null)
+            {
+                person = new Person { Name = string.Empty, Lastname = string.Empty };
+                title = "Προσθήκη";
+                btn = "Προσθήκη";
+            }
+            else
+                person = _person;
 
-            Ιnitiliazer("Στοιχεία Υπαλλήλου", "Ενημέρωση", person);
+            Ιnitiliazer(title, btn , person);
         }
 
-        public void Ιnitiliazer(string _title, string btn, Person? p)
+        public void Ιnitiliazer(string _title, string btn, Person p)
         {
             deps = new ObservableCollection<Department>(ServiceDepartment.Get_All());
             DepartmentsList.ItemsSource = deps;
-            this.Title = _title;
+            TitleBox.Text = _title;
             FirstName.Text = p.Name;
             LastName.Text = p.Lastname;
 
@@ -93,17 +102,17 @@ namespace ItemManagment.Pages
                 bool result = ServicePerson.Update(person);
                 if (result)
                 {
-                    Message.Content = "Τα στοιχεία ενημερώθηκαν!";
+                    Message.Text = "Τα στοιχεία ενημερώθηκαν!";
                     Ok_btn.Visibility = Visibility.Visible;
                     Cancel.Visibility = Visibility.Hidden;
                     Submit.Visibility = Visibility.Hidden;
                 }
                 else
-                    Message.Content = "Κάτι πήγε λάθος. Τα στοιχεία δεν αποθηκεύτηκαν.";
+                    Message.Text = "Κάτι πήγε λάθος. Τα στοιχεία δεν αποθηκεύτηκαν.";
             }
             else
             {
-                Message.Content = message;
+                Message.Text = message;
             }
 
 

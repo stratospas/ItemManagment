@@ -53,12 +53,12 @@ namespace ItemManagment.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            new Person_Profile().Show();
+            this.NavigationService.Navigate(new PersonDetails(null));
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new ItemsManagement());
+            this.NavigationService.GoBack();
         }
     }
 }

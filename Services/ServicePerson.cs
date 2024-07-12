@@ -67,7 +67,7 @@ namespace ItemManagment.Services
             var update = db.Find<Person>(person.PersonId);
 
             if (update == null)
-                return false;
+                return Add(person);
 
             try
             {

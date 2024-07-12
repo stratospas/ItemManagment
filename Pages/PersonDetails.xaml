@@ -9,30 +9,56 @@
       Title="PersonDetails">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="42*"/>
+        </Grid.RowDefinitions>
 
-        <Label Content="Όνομα :" HorizontalAlignment="Left" Height="31" Margin="147,6,0,0" VerticalAlignment="Top" Width="74" />
-        <Label Content="Επώνυμο :" HorizontalAlignment="Left" Height="31" Margin="147,42,0,0" VerticalAlignment="Top" Width="74"/>
-        <TextBox Name="FirstName" HorizontalAlignment="Left" Height="31" Margin="221,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" TextChanged="FirstName_TextChanged" />
-        <TextBox Name="LastName" HorizontalAlignment="Left" Height="31" Margin="221,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" TextChanged="LastName_TextChanged" />
+        <TextBlock Grid.Row="0" Background="#FF848484"/>
+
+        <Button Grid.Row="1"  Style="{StaticResource NoHover}" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="40" Background="{x:Null}" BorderBrush="#FFADADAD" Click="Button_Click_1" >
+            <StackPanel>
+                <Image Source="/Pages/back_24x24.png" />
+                <TextBlock Text="Πίσω" FontSize="12" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
+        <TextBlock Grid.Row="1" x:Name="TitleBox" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" TextDecorations="Underline"/>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="1" Content="Όνομα :" HorizontalAlignment="Left" Height="30"  Margin="0,40,0,0" VerticalAlignment="Top" Width="74" FontSize="14" />
+            <Label Grid.Column="1" Content="Επώνυμο :" HorizontalAlignment="Left" Height="30"  VerticalAlignment="Top" Width="74" FontSize="14"/>
+            <TextBox Grid.Column="1" Name="FirstName" HorizontalAlignment="Center" Height="31" Margin="0,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" TextChanged="FirstName_TextChanged" />
+            <TextBox Grid.Column="1" Name="LastName" HorizontalAlignment="Center" Height="31"  TextWrapping="Wrap" VerticalAlignment="Top" Width="175" TextChanged="LastName_TextChanged" />
 
 
-        <Label Content="Τμήμα :" HorizontalAlignment="Left" Height="31" Margin="147,78,0,0" VerticalAlignment="Top" Width="74"/>
-        <ListView Name="DepartmentsList" HorizontalAlignment="Left" Height="200" Margin="221,77,0,0" VerticalAlignment="Top" Width="175" SelectionMode="Single" SelectionChanged="DepartmentsList_SelectionChanged">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Number}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+            <Label Grid.Column="1" Content="Τμήμα :" HorizontalAlignment="Left" Height="31" Margin="0,90,0,0" VerticalAlignment="Top" Width="74" FontSize="14"/>
+            <ListView Grid.Column="1" Name="DepartmentsList" HorizontalAlignment="Center" Height="200" Margin="0,90,0,0" VerticalAlignment="Top" Width="175" SelectionMode="Single" SelectionChanged="DepartmentsList_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Number}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
 
 
 
 
-        <Label Name="Message"  HorizontalAlignment="Left" Height="55" Margin="133,293,0,0" VerticalAlignment="Top" Width="350"/>
-        <Button Name="Submit" Style="{StaticResource NoHover}" HorizontalAlignment="Left" Height="32" Margin="377,374,0,0" VerticalAlignment="Top" Width="117" Click="Button_Click" Background="#FF8BCDFF" Foreground="Black" />
-        <Button x:Name="Cancel" Style="{StaticResource NoHover}" Content="Άκυρο"  HorizontalAlignment="Left" Height="32" Margin="126,374,0,0" VerticalAlignment="Top" Width="116" Click="Button_Click_1" />
-        <Button x:Name="Ok_btn" Style="{StaticResource NoHover}" Content="ΟΚ" HorizontalAlignment="Left" Height="32" Margin="250,374,0,0" VerticalAlignment="Top" Width="117" Background="#FF5CB75D" Foreground="White"  Click="Ok_btn_Click" Visibility="Hidden"/>
+            <TextBlock Grid.Column="1" Name="Message" Height="200"  Width="148" VerticalAlignment="Top" HorizontalAlignment="Right" TextWrapping="Wrap"/>
+            <Button Grid.Column="1" Name="Submit" Style="{StaticResource NoHover}" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Height="32" Width="117" Click="Button_Click" Background="#FF8BCDFF" Foreground="Black" />
+            <Button Grid.Column="1" x:Name="Cancel" Style="{StaticResource NoHover}" Content="Άκυρο"  HorizontalAlignment="Left" Height="32" VerticalAlignment="Bottom" Width="116" Click="Button_Click_1" />
+            <Button Grid.Column="1" x:Name="Ok_btn" Style="{StaticResource NoHover}" Content="ΟΚ" HorizontalAlignment="Center" Height="32" VerticalAlignment="Bottom" Width="117" Background="#FF5CB75D" Foreground="White"  Click="Ok_btn_Click" Visibility="Hidden"/>
 
+
+        </Grid>
 
     </Grid>
+
 </Page>

@@ -11,57 +11,79 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="10*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="42*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="8*"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-
+        <!--
         <Button Content="" Style="{StaticResource NoHover}" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="35" BorderBrush="{x:Null}" Click="Button_Click_1" >
             <Button.Background>
                 <ImageBrush ImageSource="/Pages/49408_arrow_back_icon.png"/>
             </Button.Background>
         </Button>
+        -->
 
-        <TextBox Grid.Row="1" Grid.Column="1" x:Name="searchBox" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Center" Width="200" TextChanged="TextBox_TextChanged"/>
+        <TextBlock Grid.Row="0" Background="#FF848484"/>
 
-        <Button Style="{StaticResource NoHover}" Grid.Row="2" Grid.Column="0" Content="Προσθήκη" Width="100" Height="28" VerticalAlignment="Top" HorizontalAlignment="Center" Background="#FF4594D0" BorderBrush="#FF4594D0" Foreground="White" Click="Button_Click"/>
+        <Button Grid.Row="1"  Style="{StaticResource NoHover}" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="40" Background="{x:Null}" BorderBrush="#FFADADAD" Click="Button_Click_1" >
+            <StackPanel>
+                <Image Source="/Pages/back_24x24.png" />
+                <TextBlock Text="Πίσω" FontSize="12" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+
+        <TextBlock Grid.Row="1" Text="Διαχείρηση Ανθρώπινου Δυναμικού" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" TextDecorations="Underline"/>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Style="{StaticResource NoHover}" Grid.Column="1" Content="Προσθήκη" Width="100" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FF4594D0" BorderBrush="#FF4594D0" Foreground="White" Click="Button_Click" Margin="0,40,0,0"/>
+
+            <TextBox Grid.Column="1" x:Name="searchBox" HorizontalAlignment="Right"  TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="TextBox_TextChanged" Margin="0,40,0,0" />
+
+            <ListView x:Name="peopleList" Grid.Column="1" HorizontalAlignment="Center" Margin="0,100,0,0" 
+              MouseDoubleClick="peopleList_DoubleClik">
+                <ListView.View>
+                    <GridView>
+
+                        <GridViewColumn Header="Επώνυμο" Width="280">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Lastname}" TextAlignment="Center" Width="229"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Όνομα" Width="210">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}" TextAlignment="Center" Width="199"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="Τμήμα" Width="70">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Department.Number}" TextAlignment="Center" Width="69"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
 
 
-        <ListView x:Name="peopleList" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Height="Auto"  VerticalAlignment="Top"   MouseDoubleClick="peopleList_DoubleClik">
-            <ListView.View>
-                <GridView>
 
-                    <GridViewColumn Header="Επώνυμο" Width="230">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Lastname}" TextAlignment="Center" Width="229"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
 
-                    <GridViewColumn Header="Όνομα" Width="200">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Name}" TextAlignment="Center" Width="199"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+        
 
-                    <GridViewColumn Header="Τμήμα" Width="70">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Department.Number}" TextAlignment="Center" Width="69"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
+
 
 
 

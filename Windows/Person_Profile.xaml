@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ItemManagment.Windows"
         mc:Ignorable="d"
-        Title="Προσθήκη Υπαλλήλου" Height="600" Width="600">
+        Title="Προσθήκη Υπαλλήλου" Height="600" Width="600"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Label Content="Όνομα :" HorizontalAlignment="Left" Height="31" Margin="142,42,0,0" VerticalAlignment="Top" Width="74" />
         <Label Content="Επώνυμο :" HorizontalAlignment="Left" Height="31" Margin="142,78,0,0" VerticalAlignment="Top" Width="74"/>
