@@ -48,6 +48,7 @@ namespace ItemManagment.Pages
         {
             deps = new ObservableCollection<Department>(ServiceDepartment.Get_All());
             DepartmentsList.ItemsSource = deps;
+            //DepartmentsList1.ItemsSource = deps;
             TitleBox.Text = _title;
             FirstName.Text = p.Name;
             LastName.Text = p.Lastname;
@@ -168,6 +169,11 @@ namespace ItemManagment.Pages
                     MessageBox.Show($"Η διαγραφή ΔΕΝ ολοκληρώθηκε!{ex}");
                 }
             }
+
+        }
+
+        private void DepartmentsList1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
         }
     }
